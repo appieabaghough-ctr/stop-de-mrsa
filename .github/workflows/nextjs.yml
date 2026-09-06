@@ -35,7 +35,7 @@ jobs:
         run: npm ci
 
       - name: Build with Vinext
-        run: npx --no-install vinext build
+        run: npx --no-install vinext build --prerender-all
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
