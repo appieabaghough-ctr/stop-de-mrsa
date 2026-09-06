@@ -25,7 +25,11 @@ export default function Home() {
   const audioRef = useRef<AudioContext | null>(null);
 
   useEffect(() => {
-    fetch("/data/questions.json").then((response) => {
+  const basePath = window.location.pathname.startsWith("/stop-de-mrsa")
+  ? "/stop-de-mrsa"
+  : "";
+
+fetch(`${basePath}/data/questions.json`).then((response) => {
       if (!response.ok) throw new Error();
       return response.json();
     }).then((data: Question[]) => setQuestions(data))
